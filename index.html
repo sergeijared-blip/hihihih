@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Monthsary, My Love! 💛</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff9df;
+    color: #73551c;
+    overflow-x: hidden;
+}
+
+/* INTRODUCTION */
+
+#intro {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at top left, #fff0a8, transparent 45%),
+        linear-gradient(135deg, #fffbe8, #ffefad);
+    transition: opacity 0.8s ease;
+}
+
+.intro-card {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    padding: 50px 30px;
+    background: rgba(255,255,255,0.65);
+    border: 1px solid #f5d879;
+    border-radius: 25px;
+    box-shadow: 0 15px 45px rgba(169, 129, 39, 0.13);
+    backdrop-filter: blur(10px);
+}
+
+.flower {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.intro-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #a77919;
+    margin-bottom: 12px;
+}
+
+.intro-card p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #92743a;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e7ca73;
+    background: #fffdf5;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    color: #80601d;
+    outline: none;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #c69a32;
+    box-shadow: 0 0 10px #f5dfa0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e8c45f, #d6a633);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #d8b75a66;
+}
+
+#error {
+    color: #bb654f;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* LETTER PAGE */
+
+#letter {
+    display: none;
+    min-height: 100vh;
+    padding: 55px 20px;
+    background:
+        radial-gradient(circle at top right, #fff0a8, transparent 35%),
+        linear-gradient(140deg, #fffbed, #fff3c6);
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.letter-container {
+    max-width: 780px;
+    margin: auto;
+    background: rgba(255,255,255,0.78);
+    padding: 55px 50px;
+    border-radius: 25px;
+    border: 1px solid #f0d88e;
+    box-shadow: 0 15px 50px rgba(150, 111, 28, 0.12);
+}
+
+.top-decoration {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.letter-container h1 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 39px;
+    color: #a77b21;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #bd9a4b;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.letter-container p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2.15;
+    text-align: justify;
+    color: #705c37;
+    margin-bottom: 25px;
+}
+
+.signature {
+    text-align: center !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px !important;
+    font-style: italic;
+    color: #b68a2c !important;
+    margin-top: 35px;
+}
+
+.bottom-decoration {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: #e8c45f;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: rise 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 0.6; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .letter-container {
+        padding: 35px 23px;
+    }
+
+    .letter-container h1 {
+        font-size: 31px;
+    }
+
+    .letter-container p {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .intro-card h1 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRODUCTION PAGE -->
+
+<section id="intro">
+    <div class="intro-card">
+
+        <div class="flower">🌼</div>
+
+        <h1>For My Dearest Bambolina</h1>
+
+        <p>
+            Another month, another beautiful chapter with you.
+            Before you read my little letter, I have something
+            for you, my love.
+            <br><br>
+            Please enter today's date to open your surprise.
+        </p>
+
+        <input
+            type="date"
+            id="dateInput"
+            required
+        >
+
+        <button onclick="openLetter()">
+            Open Your Letter
+        </button>
+
+        <div id="error"></div>
+
+        <p style="margin-top:25px; margin-bottom:0;">
+            Made with love, just for you. ?
+        </p>
+
+    </div>
+</section>
+
+
+<!-- MONTHSARY LETTER PAGE -->
+
+<section id="letter">
+
+    <div class="letter-container">
+
+        <div class="top-decoration">🌼 ✨ 🌼</div>
+
+        <h1>Happy Monthsary, Wife!</h1>
+
+        <div class="subtitle">
+            ANOTHER MONTH, ANOTHER REASON TO LOVE YOU
+        </div>
+
+        <p>
+            Hello, baby! It's our monthsary again! :)
+            Happy monthsary to us, my love! We've been through
+            a lot these past months, and I know that it hasn't
+            always been easy for the both of us. There were
+            moments when things became exhausting, when
+            misunderstandings got the best of us, and when our
+            arguments made everything feel a little heavier
+            than usual. But despite all of that, I hope you
+            never doubt how much I love you. My feelings for
+            you haven't changed, not even a little. If anything,
+            I think I've come to adore you even more deeply as
+            time passes. I continue to discover new reasons to
+            love you, appreciate your presence, and treasure
+            every little thing about you. Even on days when
+            things aren't perfect between us, you're still the
+            woman I want to love, understand, and spend my days
+            with. I wouldn't trade what we have for anything,
+            because having you in my life is something I'll
+            always be grateful for.
+        </p>
+
+        <p>
+            I hope that as we continue this relationship,
+            we'll always choose to fix things rather than let
+            our misunderstandings slowly create distance
+            between us. I don't want us to become two people
+            who simply let things pass without actually
+            understanding what happened. I want us to have
+            those deep conversations, baby, even when they're
+            uncomfortable or difficult to start. I want us to
+            communicate our feelings, express what's bothering
+            us, and listen to each other without immediately
+            becoming defensive. If something hurts you, please
+            tell me. If there's something I've done that made
+            you feel unappreciated, I want to know so I can
+            understand where I went wrong. And I'll do the
+            same with you. I don't expect us to have a perfect
+            relationship, because I know that we're both still
+            learning how to love each other better. What I hope
+            for is that we'll never allow our pride to become
+            bigger than our love. I'd rather have a difficult
+            conversation with you and work things out than
+            pretend everything is okay when deep inside,
+            something is still hurting us.
+        </p>
+
+        <p>
+            Alam mo, baby, kahit kailan, hinding-hindi ako
+            manunumbat sa iyo sa mga bagay na ginawa ko para
+            sa relationship natin. I never want you to feel
+            like you owe me something just because I chose
+            to love you, support you, or make sacrifices for
+            us. Everything I do comes from my own willingness
+            and genuine love for you. Hindi ko gustong
+            maramdaman mo na kailangan mong suklian lahat ng
+            ginagawa ko just to prove that you love me,
+            because that's not what love should feel like.
+            I want you to feel safe with me, not pressured or
+            indebted. I want you to know that you can receive
+            my love without worrying that I'll eventually use
+            it against you during our arguments. Whatever
+            efforts, time, and sacrifices I give, I give them
+            because I want to, because I value you, and because
+            I genuinely want to see us grow together. You
+            deserve a love that doesn't keep a record of your
+            mistakes or make you feel guilty for receiving
+            affection. And I promise that I'll always remind
+            myself of that, especially during the moments when
+            things become difficult between us.
+        </p>
+
+        <p>
+            And baby, I want you to know that I will never
+            intentionally hurt you physically. Alam ko na
+            may mga takot at trauma kang dala tungkol sa bagay
+            na iyon, and I would never want to become another
+            reason for you to feel unsafe or afraid. I
+            understand that some experiences leave wounds
+            that aren't easily healed, and I don't expect you
+            to simply forget everything you've been through.
+            I want to be someone who respects your boundaries,
+            understands your fears, and makes you feel
+            comfortable expressing yourself. You don't have
+            to be afraid of telling me when something makes
+            you uncomfortable. I'll never want you to feel
+            like you have to walk on eggshells around me just
+            to avoid upsetting me. I want my presence to bring
+            you comfort, reassurance, and peace. I know that
+            trust isn't something that should only be
+            demanded; it's something that must continuously
+            be earned through consistent actions. So I hope
+            my actions will always remind you that you're
+            loved, respected, and valued. You deserve
+            gentleness, baby, and I'll always do my best to
+            treat you with the care that you deserve.
+        </p>
+
+        <p>
+            I also wish that our relationship will continue
+            to be blessed and guided by God. I hope that He
+            will always remain at the center of what we have,
+            especially during the moments when we don't know
+            what to do or where to go. May He give us enough
+            patience to understand each other's differences,
+            enough wisdom to handle our disagreements, and
+            enough strength to overcome whatever challenges
+            may come our way. I pray that we'll continue
+            growing not only as partners but also as
+            individuals who encourage one another to become
+            better. I want to celebrate your achievements,
+            support you through your struggles, and witness
+            all the beautiful things that life has prepared
+            for you. I hope we'll never stop praying for each
+            other and asking God to guide our decisions. We
+            may not always know what the future holds, but
+            I hope we'll continue facing it with faith, love,
+            and the willingness to choose each other. I don't
+            need everything to be perfect, baby. I just want
+            us to keep building something genuine, healthy,
+            peaceful, and lasting.
+        </p>
+
+        <p>
+            Happy monthsary again, wife! I love you so much,
+            and I hope you never get tired of hearing that
+            from me. Thank you for staying, for loving me,
+            for allowing me to be part of your life, and for
+            sharing another month of your existence with me.
+            I know that there are still so many things we
+            need to learn about each other, and there will
+            probably be more difficult days ahead, but I hope
+            we'll never forget why we started and why we're
+            still here. I want more monthsaries with you,
+            more memories, more random conversations, more
+            laughter, more adventures, and even those ordinary
+            days when we're simply doing nothing together.
+            I want to experience life with you, through its
+            beautiful moments and its challenging ones.
+            I'll keep choosing to understand you, cherish you,
+            and love you in ways that make you feel
+            appreciated. I hope we never lose the willingness
+            to work things out and grow together. I love you
+            always, wife. May God continue to bless us and
+            the love that we share.
+        </p>
+
+        <div class="signature">
+            Forever yours, with love. 💛
+        </div>
+
+        <div class="bottom-decoration">
+             🌼 
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// SET TODAY'S DATE AUTOMATICALLY
+
+const today = new Date();
+const localToday = new Date(
+    today.getTime() - today.getTimezoneOffset() * 60000
+).toISOString().split('T')[0];
+
+const dateInput = document.getElementById("dateInput");
+
+dateInput.value = localToday;
+dateInput.max = localToday;
+
+
+// OPEN THE LETTER
+
+function openLetter() {
+
+    const enteredDate = dateInput.value;
+    const error = document.getElementById("error");
+
+    if (!enteredDate) {
+        error.textContent = "Please enter today's date first. ♡";
+        return;
+    }
+
+    if (enteredDate !== localToday) {
+        error.textContent = "Please enter the correct date, baby. 💛";
+        return;
+    }
+
+    const intro = document.getElementById("intro");
+    const letter = document.getElementById("letter");
+
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+        intro.style.display = "none";
+        letter.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        createHearts();
+
+    }, 800);
+}
+
+
+// ENTER KEY SUPPORT
+
+dateInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        openLetter();
+    }
+});
+
+
+// FLOATING HEART ANIMATION
+
+function createHearts() {
+
+    setInterval(() => {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ["♡", "♥", "✧", "💛"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (12 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+
+    }, 650);
+}
+
+</script>
+
+</body>
+</html>
